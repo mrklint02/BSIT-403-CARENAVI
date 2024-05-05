@@ -18,7 +18,21 @@
         <h1 class="listName">Doctor List</h1>
         
         {{-- patient list --}}
-        <div id="patientList"></div>
+        <div id="patientList">
+            @forelse ($patients as $patient)
+            <div class="card">
+                <h2>{{$patient->lastName}}, {{$patient->firstName}}</h2>
+                <h3>{{$patient->status}}</h3>
+                <div class="line"></div>
+                <p><strong>Floor {{$patient->floor}}</strong>, Room {{$patient->room}}</p>
+                <p>{{$patient->dateAdmitted}}</p>
+                <br>
+                <h4>{{$patient->doctorName}}</h4>
+            </div>
+        @empty
+            <h1>No Patient currently.</h1>
+        @endforelse
+        </div>
         {{-- doctor list --}}
         <div id="doctorList"></div>
     </div>
