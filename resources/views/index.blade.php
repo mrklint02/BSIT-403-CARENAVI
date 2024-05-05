@@ -20,6 +20,7 @@
         {{-- patient list --}}
         <div id="patientList">
             @forelse ($patients as $patient)
+            @if ($patient->status !== 'Discharged')
             <div class="card">
                 <h2>{{$patient->lastName}}, {{$patient->firstName}}</h2>
                 <h3>{{$patient->status}}</h3>
@@ -29,6 +30,7 @@
                 <br>
                 <h4>{{$patient->doctorName}}</h4>
             </div>
+            @endif
         @empty
             <h1>No Patient currently.</h1>
         @endforelse
