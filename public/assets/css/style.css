@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    /* background-color: green; */
+    box-shadow: 0 0 10px black;
+    background: linear-gradient(315deg, #004416 0%, #5ED67E 100%)
+}
+#logo {
+    height: 70px;
+}
+#name {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+#main {
+    display: grid;
+    grid-template-columns: 49vw 49vw;
+}
+.listName {
+    justify-self: center;
+}
+#patientList, #doctorList {
+    display: grid;
+    grid-template-columns: repeat(3, 33%);
+    grid-auto-rows: 300px;
+    gap: 5px;
+    padding: 10px;
+}
+#doctorList {
+    border-left: 5px solid rgba(0, 0, 0, 0.5);
+}
