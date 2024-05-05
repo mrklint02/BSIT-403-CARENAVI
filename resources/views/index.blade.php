@@ -34,7 +34,19 @@
         @endforelse
         </div>
         {{-- doctor list --}}
-        <div id="doctorList"></div>
+        <div id="doctorList">
+            @forelse ($doctors as $doctor)
+            <div class="card" data-status="{{$doctor->status}}">
+                <h2>{{$doctor->lastName}},</h2>
+                <h3>{{$doctor->firstName}}</h3>
+                <div class="line"></div>
+                <p><strong>{{$doctor->specialty}}</strong>, Floor {{$doctor->floor}}</p>
+                <p>{{$doctor->status}}</p>
+            </div>
+        @empty
+            <h1>No Doctors available.</h1>
+        @endforelse
+        </div>
     </div>
 </body>
 </html>
