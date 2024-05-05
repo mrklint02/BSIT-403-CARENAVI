@@ -4,51 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>View</title>
+    <title>CareNavi</title>
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 </head>
 <body>
     <header>
         <h1 id="name">CareNavi</h1>
-        <img src="{{asset('assets/logos/logo.png')}}" alt="Logo" id="logo">
+        <img src="{{asset('assets/logos/logo2.png')}}" alt="Logo" id="logo">
     </header>
+    <nav>
+        <a href="{{route('view')}}">View</a>
+        <a href="{{route('index')}}">Dashboard</a>
+        <a href="">Patient List</a>
+        <a href="">Doctor List</a>
+    </nav>
 
-    <div id="main">
-        <h1 class="listName">Patient List</h1>
-        <h1 class="listName">Doctor List</h1>
-        
-        {{-- patient list --}}
-        <div id="patientList">
-            @forelse ($patients as $patient)
-            @if ($patient->status !== 'Discharged')
-            <div class="card">
-                <h2>{{$patient->lastName}}, {{$patient->firstName}}</h2>
-                <h3>{{$patient->status}}</h3>
-                <div class="line"></div>
-                <p><strong>Floor {{$patient->floor}}</strong>, Room {{$patient->room}}</p>
-                <p>{{$patient->dateAdmitted}}</p>
-                <br>
-                <h4>{{$patient->doctorName}}</h4>
-            </div>
-            @endif
-        @empty
-            <h1>No Patient currently.</h1>
-        @endforelse
-        </div>
-        {{-- doctor list --}}
-        <div id="doctorList">
-            @forelse ($doctors as $doctor)
-            <div class="card" data-status="{{$doctor->status}}">
-                <h2>{{$doctor->lastName}},</h2>
-                <h3>{{$doctor->firstName}}</h3>
-                <div class="line"></div>
-                <p><strong>{{$doctor->specialty}}</strong>, Floor {{$doctor->floor}}</p>
-                <p>{{$doctor->status}}</p>
-            </div>
-        @empty
-            <h1>No Doctors available.</h1>
-        @endforelse
-        </div>
-    </div>
 </body>
 </html>

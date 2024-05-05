@@ -8,10 +8,14 @@ use Illuminate\Http\Request;
 
 class DataController extends Controller
 {
-    public function index() 
+    public function view() 
     {
         $doctors = Doctor::all()->sortBy('lastName');
         $patients = Patient::all()->sortBy('lastName');
-        return view('index', compact('patients', 'doctors'));
+        return view('view', compact('patients', 'doctors'));
+    }
+
+    public function index() {
+        return view('index');
     }
 }
