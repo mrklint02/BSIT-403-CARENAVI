@@ -5,10 +5,10 @@ for (let i = 0; i < cards.length; i++) {
     const card = cards[i];
     
     var stats = card.getAttribute('data-status')
-    if(stats === 'Off Duty') {
+    if(stats === 'Off Duty' || stats === 'Critical Condition') {
         card.style.backgroundColor = 'rgb(255, 0, 0, 0.3)'
     }
-    if(stats === 'Available' || stats === 'In Rounds') {
+    if(stats === 'Available' || stats === 'In Rounds' || stats === 'Stable' || stats === 'Admitted' || stats === 'In Recovery') {
         card.style.backgroundColor = 'rgb(0, 255, 0, 0.3)'
     }
     if(stats === 'In Surgery') {

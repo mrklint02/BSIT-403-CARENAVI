@@ -22,7 +22,7 @@
         <div id="patientList">
             @forelse ($patients as $patient)
             @if ($patient->status !== 'Discharged')
-            <div class="card">
+            <div class="card" data-status="{{$patient->status}}">
                 <h2>{{$patient->lastName}}, {{$patient->firstName}}</h2>
                 <h3>{{$patient->status}}</h3>
                 <div class="line"></div>

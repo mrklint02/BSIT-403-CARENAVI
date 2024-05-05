@@ -13,10 +13,10 @@
         <img src="{{asset('assets/logos/logo2.png')}}" alt="Logo" id="logo">
     </header>
     <nav>
-        <a href="{{route('view')}}">View</a>
-        <a href="{{route('index')}}">Dashboard</a>
-        <a href="">Patient List</a>
-        <a href="">Doctor List</a>
+        <a href="{{route('view')}}" class="nav">View</a>
+        <a href="{{route('index')}}" class="nav">Dashboard</a>
+        <a href="" class="nav">Patient List</a>
+        <a href="" class="nav">Doctor List</a>
     </nav>
 
 </body>
