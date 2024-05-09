@@ -12,43 +12,66 @@
         <h1 id="name">CareNavi</h1>
         <img src="{{asset('assets/logos/logo.png')}}" alt="Logo" id="logo">
     </header>
+    <nav>
+        <button onclick="view()" class="nav">View</button>
+        <button onclick="" class="nav">Dashboard</button>
+        <button onclick="patientList()" class="nav">Patient List</button>
+        <button onclick="doctorList()" class="nav">Doctor List</button>
+    </nav>
 
-    <div id="main">
-        <h1 class="listName">Patient List</h1>
-        <h1 class="listName">Doctor List</h1>
-        
-        {{-- patient list --}}
-        <div id="patientList">
+    <table id="patientTable" style="display: none">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Room & Floor</th>
+                <th>Date Admitted</th>
+                <th>Doctor</th>
+            </tr>
+        </thead>
+        <tbody>
             @forelse ($patients as $patient)
-            @if ($patient->status !== 'Discharged')
-            <div class="card">
-                <h2>{{$patient->lastName}}, {{$patient->firstName}}</h2>
-                <h3>{{$patient->status}}</h3>
-                <div class="line"></div>
-                <p><strong>Floor {{$patient->floor}}</strong>, Room {{$patient->room}}</p>
-                <p>{{$patient->dateAdmitted}}</p>
-                <br>
-                <h4>{{$patient->doctorName}}</h4>
-            </div>
-            @endif
-        @empty
-            <h1>No Patient currently.</h1>
-        @endforelse
-        </div>
-        {{-- doctor list --}}
-        <div id="doctorList">
+                <tr>
+                    <td>{{$patient->firstName}} {{$patient->lastName}}</td>
+                    <td>{{$patient->status}}</td>
+                    <td>Room {{$patient->room}}, Floor {{$patient->floor}}</td>
+                    <td>{{$patient->dateAdmitted}}</td>
+                    <td>{{$patient->doctorName}}</td>
+                </tr>
+            @empty
+                
+            @endforelse
+        </tbody>
+    </table>
+
+    <table id="doctorTable" style="display: none">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialty</th>
+                <th>Floor</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
             @forelse ($doctors as $doctor)
-            <div class="card" data-status="{{$doctor->status}}">
-                <h2>{{$doctor->lastName}},</h2>
-                <h3>{{$doctor->firstName}}</h3>
-                <div class="line"></div>
-                <p><strong>{{$doctor->specialty}}</strong>, Floor {{$doctor->floor}}</p>
-                <p>{{$doctor->status}}</p>
-            </div>
-        @empty
-            <h1>No Doctors available.</h1>
-        @endforelse
-        </div>
-    </div>
+                <tr>
+                    <td>{{$doctor->firstName}} {{$doctor->lastName}}</td>
+                    <td>{{$doctor->specialty}}</td>
+                    <td>{{$doctor->floor}}</td>
+                    <td>{{$doctor->status}}</td>
+                </tr>
+            @empty
+                
+            @endforelse
+        </tbody>
+    </table>
+
+    <script src="{{asset('assets/js/js.js')}}"></script>
+    <script>
+        function view() {
+            window.location.href = "{{ route('view') }}";
+        }
+    </script>
 </body>
 </html>
