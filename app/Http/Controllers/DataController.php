@@ -16,6 +16,8 @@ class DataController extends Controller
     }
 
     public function index() {
-        return view('index');
+        $doctors = Doctor::all();
+        $patients = Patient::all();
+        return view('index', compact('doctors', 'patients'));
     }
 }

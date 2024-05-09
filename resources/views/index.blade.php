@@ -13,11 +13,65 @@
         <img src="{{asset('assets/logos/logo2.png')}}" alt="Logo" id="logo">
     </header>
     <nav>
-        <a href="{{route('view')}}" class="nav">View</a>
-        <a href="{{route('index')}}" class="nav">Dashboard</a>
-        <a href="" class="nav">Patient List</a>
-        <a href="" class="nav">Doctor List</a>
+        <button onclick="view()" class="nav">View</button>
+        <button onclick="" class="nav">Dashboard</button>
+        <button onclick="patientList()" class="nav">Patient List</button>
+        <button onclick="doctorList()" class="nav">Doctor List</button>
     </nav>
 
+    <table id="patientTable" style="display: none">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Room & Floor</th>
+                <th>Date Admitted</th>
+                <th>Doctor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($patients as $patient)
+                <tr>
+                    <td>{{$patient->firstName}} {{$patient->lastName}}</td>
+                    <td>{{$patient->status}}</td>
+                    <td>Room {{$patient->room}}, Floor {{$patient->floor}}</td>
+                    <td>{{$patient->dateAdmitted}}</td>
+                    <td>{{$patient->doctorName}}</td>
+                </tr>
+            @empty
+                
+            @endforelse
+        </tbody>
+    </table>
+
+    <table id="doctorTable" style="display: none">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialty</th>
+                <th>Floor</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @forelse ($doctors as $doctor)
+                <tr>
+                    <td>{{$doctor->firstName}} {{$doctor->lastName}}</td>
+                    <td>{{$doctor->specialty}}</td>
+                    <td>{{$doctor->floor}}</td>
+                    <td>{{$doctor->status}}</td>
+                </tr>
+            @empty
+                
+            @endforelse
+        </tbody>
+    </table>
+
+    <script src="{{asset('assets/js/js.js')}}"></script>
+    <script>
+        function view() {
+            window.location.href = "{{ route('view') }}";
+        }
+    </script>
 </body>
 </html>

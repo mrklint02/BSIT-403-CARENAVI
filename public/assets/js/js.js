@@ -21,3 +21,12 @@ for (let i = 0; i < cards.length; i++) {
         card.style.backgroundColor = 'rgb(0, 0, 0, 0.3)'
     }
 }
+
+function patientList() {
+    document.getElementById('patientTable').style.display = 'block'
+    document.getElementById('doctorTable').style.display = 'none'
+}
+function doctorList() {
+    document.getElementById('doctorTable').style.display = 'block'
+    document.getElementById('patientTable').style.display = 'none'
+}
