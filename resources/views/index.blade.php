@@ -20,7 +20,7 @@
     </nav>
 
     <div id="patientTable" style="display: none">
-        <div>
+        <div id="leftSide">
             <table>
                 <thead>
                     <tr>
@@ -48,7 +48,7 @@
                 </tbody>
             </table>
         </div>
-        <div>
+        <div id="rightSide">
             <h1>Admit New Patient:</h1>
             <form method="post">
                 @csrf
@@ -57,11 +57,7 @@
                 Status:
                 <select name="status" id="status">
                     <option value="Admitted">Admitted</option>
-                    <option value="Discharged">Discharged</option>
                     <option value="In Surgery">In Surgery</option>
-                    <option value="In Recovery">In Recovery</option>
-                    <option value="Critical Condition">Critical Condition</option>
-                    <option value="Stable">Stable</option>
                 </select>
                 <input type="number" name="roomNumber" id="roomNumber" placeholder="Room Number">
                 <input type="number" name="floorNumber" id="floorNumber" placeholder="Floor Number">

@@ -78,3 +78,11 @@ nav {
     color: #ffffff;
     background-position: 100%;
 }
+#patientTable{
+    padding: 10px;
+    grid-template-columns: 49vw 49vw;
+    column-gap: 10px;
+}
+#leftSide, #rightSide{
+    border: 1px solid red;
+}
