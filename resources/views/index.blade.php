@@ -21,23 +21,23 @@
 
     <div id="patientTable" style="display: none">
         <div id="leftSide">
-            <table>
+            <table border="1px solid" style="width: 100%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Status</th>
-                        <th>Room & Floor</th>
-                        <th>Date Admitted</th>
-                        <th>Doctor</th>
+                        <th style="background-color: green">Name</th>
+                        <th style="background-color: green">Status</th>
+                        <th style="background-color: green">Room & Floor</th>
+                        <th style="background-color: green">Date Admitted</th>
+                        <th style="background-color: green">Doctor</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse ($patients as $patient)
                         <tr>
                             <td>{{$patient->firstName}} {{$patient->lastName}}</td>
-                            <td>{{$patient->status}}</td>
-                            <td>Room {{$patient->room}}, Floor {{$patient->floor}}</td>
-                            <td>{{$patient->dateAdmitted}}</td>
+                            <td style="text-align: center">{{$patient->status}}</td>
+                            <td style="text-align: center">Room {{$patient->room}}, Floor {{$patient->floor}}</td>
+                            <td style="text-align: center">{{$patient->dateAdmitted}}</td>
                             <td>{{$patient->doctorName}}</td>
                         </tr>
                     @empty
@@ -48,7 +48,7 @@
                 </tbody>
             </table>
         </div>
-        <div id="rightSide">
+        {{-- <div id="rightSide">
             <h1>Admit New Patient:</h1>
             <form method="post">
                 @csrf
@@ -65,18 +65,18 @@
                 <input type="text" name="doctorName" id="doctorName" placeholder="Doctor Name">
                 <input type="submit" value="Admit">
             </form>
-        </div>
+        </div> --}}
     </div>
 
     <div id="doctorTable" style="display: none">
         <div>
-            <table>
+            <table border="2px solid" style="width: 50%">
                 <thead>
                     <tr>
-                        <th>Name</th>
-                        <th>Specialty</th>
-                        <th>Floor</th>
-                        <th>Status</th>
+                        <th style="background-color: green">Name</th>
+                        <th style="background-color: green">Specialty</th>
+                        <th style="background-color: green">Floor</th>
+                        <th style="background-color: green">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -84,8 +84,8 @@
                         <tr>
                             <td>{{$doctor->firstName}} {{$doctor->lastName}}</td>
                             <td>{{$doctor->specialty}}</td>
-                            <td>{{$doctor->floor}}</td>
-                            <td>{{$doctor->status}}</td>
+                            <td style="text-align: center">{{$doctor->floor}}</td>
+                            <td style="text-align: center">{{$doctor->status}}</td>
                         </tr>
                     @empty
                         <tr>
