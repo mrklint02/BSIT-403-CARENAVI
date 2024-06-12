@@ -86,3 +86,16 @@ nav {
 #leftSide, #rightSide{
     border: 1px solid red;
 }
+
+.table-custom th,
+.table-custom td {
+    border: 1px solid #869D96;
+}
+
+.table-custom {
+    border-collapse: collapse;
+}
+.thead-dark {
+    
+    background-color: #A2C3A4;
+}

@@ -21,14 +21,14 @@
 
     <div id="patientTable" style="display: none">
         <div id="leftSide">
-            <table border="1px solid" style="width: 100%">
-                <thead>
+            <table class="table table-custom" style="width: 100%">
+                <thead class="thead-dark">
                     <tr>
-                        <th style="background-color: green">Name</th>
-                        <th style="background-color: green">Status</th>
-                        <th style="background-color: green">Room & Floor</th>
-                        <th style="background-color: green">Date Admitted</th>
-                        <th style="background-color: green">Doctor</th>
+                        <th>Name</th>
+                        <th>Status</th>
+                        <th>Room & Floor</th>
+                        <th>Date Admitted</th>
+                        <th>Doctor</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,13 +70,13 @@
 
     <div id="doctorTable" style="display: none">
         <div>
-            <table border="2px solid" style="width: 50%">
-                <thead>
+            <table class="table table-custom" style="width: 50%">
+                <thead class="thead-dark">
                     <tr>
-                        <th style="background-color: green">Name</th>
-                        <th style="background-color: green">Specialty</th>
-                        <th style="background-color: green">Floor</th>
-                        <th style="background-color: green">Status</th>
+                        <th >Name</th>
+                        <th>Specialty</th>
+                        <th>Floor</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
